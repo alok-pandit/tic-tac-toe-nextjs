@@ -18,5 +18,16 @@ const config: Config = {
   plugins: [
     require("tailwindcss-radix")(),
   ],
+  safelist: [
+    'rotate-0',
+    'rotate-45',
+    'rotate-90',
+    '-rotate-45',
+    'border-t-0',
+    'border-l-0',
+    'border-r-0',
+    'border-b-0',
+    'w-52'
+  ]
 }
 export default config

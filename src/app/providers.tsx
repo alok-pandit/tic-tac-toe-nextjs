@@ -3,8 +3,8 @@
 import { Provider as JotaiProvider, createStore } from 'jotai'
 import { ReactNode } from 'react'
 
-const jotaiStore = createStore()
-
 export default function Providers({ children }: { children: ReactNode }) {
+  const jotaiStore = createStore()
+
   return <JotaiProvider store={jotaiStore}>{children}</JotaiProvider>
 }

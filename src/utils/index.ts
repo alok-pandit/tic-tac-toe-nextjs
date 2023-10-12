@@ -1,27 +1,17 @@
 import { clsx, type ClassValue } from 'clsx'
-import { twMerge } from 'tailwind-merge'
 
 export const clmx = (...inputs: ClassValue[]) => {
-  return twMerge(clsx(inputs))
+  return clsx(inputs)
 }
 
 export const getBorders = (i: number) => {
   switch (i % 3) {
     case 0:
-      return clmx(
-        'border-l-0 border-b-0',
-        `${i === 0 || i === 1 || i === 2 ? 'border-t-0' : null}`
-      )
+      return clmx('border-l-0 border-b-0')
     case 1:
-      return clmx(
-        'border-l-0 border-r-0 border-b-0',
-        `${i === 0 || i === 1 || i === 2 ? 'border-t-0' : null}`
-      )
+      return clmx('border-l-0 border-r-0 border-b-0')
     default:
-      return clmx(
-        'border-r-0 border-b-0',
-        `${i === 0 || i === 1 || i === 2 ? 'border-t-0' : null}`
-      )
+      return clmx('border-r-0 border-b-0')
   }
 }
 

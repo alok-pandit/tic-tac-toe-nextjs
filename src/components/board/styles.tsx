@@ -16,7 +16,9 @@ const wrappingGridCls = clmx('grid grid-cols-3')
 export const Square = w.button(squareCls, {
   variants: {
     strike: (s: boolean) => (s ? 'text-red-600' : ''),
-    borders: (i: number) => getBorders(i)
+    borders: (i: number) =>
+      `${i === 0 || i === 1 || i === 2 ? 'border-t-0' : null}
+    ${getBorders(i)}`
   }
 })
 

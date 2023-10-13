@@ -1,5 +1,7 @@
 import { clsx, type ClassValue } from 'clsx'
 
+import { rotationEnum } from '@/types'
+
 export const clmx = (...inputs: ClassValue[]) => {
   return clsx(inputs)
 }
@@ -25,5 +27,24 @@ export const getRotations = (r: number) => {
       return clmx('rotate-90')
     default:
       return clmx('rotate-0')
+  }
+}
+
+export const checkRotations = (rotation: number[]) => {
+  const isWinningCombo = (combo: number[]) =>
+    combo.every((num) => rotation.includes(num))
+
+  if (isWinningCombo([0, 4, 8])) {
+    return rotationEnum.NEG
+  } else if (isWinningCombo([2, 4, 6])) {
+    return rotationEnum.POS
+  } else if (
+    isWinningCombo([0, 3, 6]) ||
+    isWinningCombo([1, 4, 7]) ||
+    isWinningCombo([2, 5, 8])
+  ) {
+    return rotationEnum.STR
+  } else {
+    return rotationEnum.NIL
   }
 }
